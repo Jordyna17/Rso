@@ -77,11 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<RSO> matches = new ArrayList<>();
 
-        for(int i = 0; i < App.rso.length; i++) {
+        for(int i = 0; i < App.RSO.size(); i++) {
             for (int j = 0; j < tags.length; j++) {
-                if (App.rso[i].equals(tags[j]) && !matches.contains(App.rso[i])) {
+                if (App.RSO.get(i).equals(tags[j]) && !matches.contains(App.RSO)) {
 
-                    matches.add(App.rso[i]);
+                    matches.add(App.RSO.get(i));
 
                 }
             }
@@ -95,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<RSO> matches = new ArrayList<>();
 
-        for (int i = 0; i < App.rso.length; i++) {
-            if (name.equals(App.rso[i].org_name)) {
-                matches.add(App.rso[i]);
+        for (int i = 0; i < App.RSO.size(); i++) {
+            if (name.equals(App.RSO.get(i).org_name)) {
+                matches.add(App.RSO.get(i));
             }
         }
 
