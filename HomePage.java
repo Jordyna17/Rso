@@ -10,6 +10,7 @@ import android.widget.Button;
 public class HomePage extends Activity implements View.OnClickListener{
 
     Button button;
+    Button randombutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,16 +20,39 @@ public class HomePage extends Activity implements View.OnClickListener{
         button = (Button) findViewById(R.id.List);
         button.setOnClickListener(HomePage.this);
 
+        randombutton = (Button) findViewById(R.id.Dice);
+        randombutton.setOnClickListener(HomePage.this);
+
     }
 
     @Override
     public void onClick(View v) {
-        openActivity2();
+
+        if (v.getId() == R.id.List) {
+            System.out.println("testforlist");
+            openActivity2();
+
+        }
+
+        if (v.getId() == R.id.Dice) {
+            System.out.println("test!");
+            openRandomPage();
+        }
+
     }
+
 
     public void openActivity2() {
         Intent intent = new Intent(HomePage.this, listpage.class);
         startActivity(intent);
+
+    }
+
+    public void openRandomPage() {
+        Intent intent = new Intent(HomePage.this, RandomPage.class);
+        startActivity(intent);
+
+
 
     }
 

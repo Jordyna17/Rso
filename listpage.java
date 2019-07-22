@@ -45,9 +45,9 @@ public class listpage extends AppCompatActivity {
 
         }*/
 
-        adapter = new CustomAdapter(listpage.this, list2.RSO);
+        //adapter = new CustomAdapter(listpage.this, list2.RSO);
 
-        listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);
 
 
     }
