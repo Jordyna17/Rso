@@ -32,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }, SPLASH_TIME_OUT);
+
+        try {
+
+            test();
+
+        } catch(Exception e) {
+            System.out.println("fail");
+        }
+
     }
 
     private static String readUrl(String urlString) throws Exception {
@@ -77,11 +86,11 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<RSO> matches = new ArrayList<>();
 
-        for(int i = 0; i < App.RSO.size(); i++) {
+        for(int i = 0; i < App.RSO.length; i++) {
             for (int j = 0; j < tags.length; j++) {
-                if (App.RSO.get(i).equals(tags[j]) && !matches.contains(App.RSO)) {
+                if (App.RSO[i].equals(tags[j]) && !matches.contains(App.RSO)) {
 
-                    matches.add(App.RSO.get(i));
+                    matches.add(App.RSO[i]);
 
                 }
             }
@@ -95,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<RSO> matches = new ArrayList<>();
 
-        for (int i = 0; i < App.RSO.size(); i++) {
-            if (name.equals(App.RSO.get(i).org_name)) {
-                matches.add(App.RSO.get(i));
+        for (int i = 0; i < App.RSO.length; i++) {
+            if (name.equals(App.RSO[i].org_name)) {
+                matches.add(App.RSO[i]);
             }
         }
 

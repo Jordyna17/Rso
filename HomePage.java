@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import java.util.Random;
 
 public class HomePage extends Activity implements View.OnClickListener{
 
@@ -35,7 +36,15 @@ public class HomePage extends Activity implements View.OnClickListener{
         }
 
         if (v.getId() == R.id.Dice) {
-            System.out.println("test!");
+            System.out.println("test!!");
+
+            Random ran = new Random();
+
+            RandomPage r = new RandomPage();
+
+            r.setTobeused(App.RSO[ran.nextInt(App.RSO.length)]);
+
+
             openRandomPage();
         }
 

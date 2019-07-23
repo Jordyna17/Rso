@@ -12,7 +12,13 @@ public class RandomPage extends AppCompatActivity {
     TextView rsoemail;
     TextView rsodes;
 
-    RSO tobeused;
+    public RSO tobeused;
+
+    public void setTobeused(RSO newvar ) {
+
+        tobeused = newvar;
+
+    }
 
 
     @Override
