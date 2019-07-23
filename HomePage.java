@@ -36,7 +36,7 @@ public class HomePage extends Activity implements View.OnClickListener{
         }
 
         if (v.getId() == R.id.Dice) {
-            System.out.println("test!!");
+            System.out.println("test!");
 
             Random ran = new Random();
 
