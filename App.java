@@ -4,6 +4,6 @@ import java.util.ArrayList;
 
 public class App {
 
-    public static RSO[] RSO;
+    public RSO[] RSO;
 
 }

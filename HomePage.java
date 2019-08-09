@@ -13,6 +13,8 @@ public class HomePage extends Activity implements View.OnClickListener{
     Button button;
     Button randombutton;
 
+    public App app;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,15 @@ public class HomePage extends Activity implements View.OnClickListener{
 
             RandomPage r = new RandomPage();
 
-            r.setTobeused(App.RSO[ran.nextInt(App.RSO.length)]);
+            try {
+                //app = MainActivity.test();
+                System.out.println(app.RSO.length);
+
+            } catch (Exception e) {
+                System.out.println("dice app failed");
+            }
+
+            r.setTobeused(app.RSO[ran.nextInt(app.RSO.length)]);
 
 
             openRandomPage();

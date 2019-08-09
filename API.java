@@ -37,9 +37,9 @@ public class PullAPI {
         stringHttpResponse = Unirest.get(url).asString();
 // Check to see if the request was successful; if so, convert the payload JSON into Java objects
         if (stringHttpResponse.getStatus() == STATUS_OK) {
-            String json = stringHttpResponse.getBody();
+            String json.json = stringHttpResponse.getBody();
             Gson gson = new Gson();
-            adventure = gson.fromJson(json, Adventure.class);
+            adventure = gson.fromJson(json.json, Adventure.class);
         }
     }
 }*/

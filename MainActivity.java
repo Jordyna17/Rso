@@ -11,12 +11,15 @@ import com.google.gson.GsonBuilder;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static App a;
     private static int SPLASH_TIME_OUT = 4000;
 
     @Override
@@ -35,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         try {
 
-            test();
+            a = test();
+            System.out.println(a.RSO.length);
+
 
         } catch(Exception e) {
             System.out.println("fail");
@@ -71,8 +76,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static App test() throws Exception {
-        String json = readUrl("https://pastebin.com/raw/6krt1cbb");
+
+
+
+
+    public String readJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getAssets().open("json.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
+    public App test() throws Exception {
+        String json = readJSONFromAsset();
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
@@ -84,13 +109,15 @@ public class MainActivity extends AppCompatActivity {
 
     public ArrayList<RSO> findTags(String[] tags) {
 
+
+
         ArrayList<RSO> matches = new ArrayList<>();
 
-        for(int i = 0; i < App.RSO.length; i++) {
+        for(int i = 0; i < a.RSO.length; i++) {
             for (int j = 0; j < tags.length; j++) {
-                if (App.RSO[i].equals(tags[j]) && !matches.contains(App.RSO)) {
+                if (a.RSO[i].equals(tags[j]) && !matches.contains(a.RSO)) {
 
-                    matches.add(App.RSO[i]);
+                    matches.add(a.RSO[i]);
 
                 }
             }
@@ -104,9 +131,9 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<RSO> matches = new ArrayList<>();
 
-        for (int i = 0; i < App.RSO.length; i++) {
-            if (name.equals(App.RSO[i].org_name)) {
-                matches.add(App.RSO[i]);
+        for (int i = 0; i < a.RSO.length; i++) {
+            if (name.equals(a.RSO[i].org_name)) {
+                matches.add(a.RSO[i]);
             }
         }
 
@@ -114,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
         return matches;
 
     }
-
 
 
 

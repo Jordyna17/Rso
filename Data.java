@@ -35,7 +35,7 @@ public class Data {
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
 
-        //Page page = gson.fromJson(json, Page.class);
+        //Page page = gson.fromJson(json.json, Page.class);
 
     }
 
